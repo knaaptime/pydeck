@@ -1,0 +1,209 @@
+<!DOCTYPE html><html>
+<head>
+<title>pydeck</title>
+<meta charset='utf-8'>
+<style>
+/* Copied with minor edits from the xaringan R package by Yihui Xie
+Original file: https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default-fonts.css
+xaringan: https://github.com/yihui/xaringan */
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+
+body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
+h1, h2, h3 {
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: normal;
+}
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
+
+</style>
+<style>
+/* Copied with minor edits from the xaringan R package by Yihui Xie
+Original file: https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css
+xaringan: https://github.com/yihui/xaringan */
+
+a, a > code {
+  color: rgb(249, 38, 114);
+  text-decoration: none;
+}
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 90%;
+}
+.remark-code-line-highlighted     { background-color: #ffff88; }
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #f3f3f3;
+}
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+.pull-right ~ * {
+  clear: both;
+}
+img, video, iframe {
+  max-width: 100%;
+}
+blockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+}
+.remark-slide table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+.remark-slide table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
+
+@page {
+  size: 1210px 681px;
+  margin: 0;
+}
+
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+</style>
+<style>
+/*
+ * Nord 作为背景色
+*/
+@import "./nord.css";
+
+.bg-nord1 {
+  background-color: var(--nord1) !important;
+}
+.bg-nord2 {
+  background-color: var(--nord2) !important;
+}
+.bg-nord3 {
+  background-color: var(--nord3) !important;
+}
+.bg-nord4 {
+  background-color: var(--nord4) !important;
+}
+.bg-nord5 {
+  background-color: var(--nord5) !important;
+}
+.bg-nord6 {
+  background-color: var(--nord6) !important;
+}
+.bg-nord7 {
+  background-color: var(--nord7) !important;
+}
+.bg-nord8 {
+  background-color: var(--nord8) !important;
+}
+.bg-nord9 {
+  background-color: var(--nord9) !important;
+}
+.bg-nord10 {
+  background-color: var(--nord10) !important;
+}
+.bg-nord11 {
+  background-color: var(--nord11) !important;
+}
+.bg-nord12 {
+  background-color: var(--nord12) !important;
+}
+.bg-nord13 {
+  background-color: var(--nord13) !important;
+}
+.bg-nord14 {
+  background-color: var(--nord14) !important;
+}
+.bg-nord15 {
+  background-color: var(--nord15) !important;
+}
+</style>
+<style>
+/* comment here*/
+
+.border-layout {
+  padding: 0px;
+}
+
+.border-layout .north > p,
+.border-layout .east > p,
+.border-layout .west > p,
+.border-layout .b-center > p,
+.border-layout .south > p {
+  margin: 0px;
+}
+
+.east {
+  float: right;
+}
+
+.west {
+  float: left;
+}
+
+.b-center:after {
+  content: " ";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+<textarea id='source'>
+
+class: middle, center, inverse
+# Title of My pydeck Presentation
+
+---
+# A First Slide  
+With three bullet points:  
++ Here is point 1  
++ Here is point 2  
++ Here is point 3  
+</textarea>
+<script src='https://remarkjs.com/downloads/remark-latest.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured' type='text/javascript'></script>
+<script>
+var slideshow = remark.create({ratio: '16:9', navigation: {scroll: true, touch: true, click: false}, countIncrementalSlides: true, highlighting: {highlightLanguage: '-'}});
+MathJax.Hub.Config({tex2jax:{skipTags:['script','noscript', 'style', 'textarea', 'pre']}});
+MathJax.Hub.Configured();
+</script>
+</body>
+</html>

@@ -74,7 +74,7 @@ class SlideDeck():
         markdown, yaml_params = pydeck.parse.markdown(self.md_file)
 
         if yaml_params is not None:
-            yaml_params = yaml.load(yaml_params)
+            yaml_params = yaml.full_load(yaml_params)
         else:
             yaml_params = {}
 
